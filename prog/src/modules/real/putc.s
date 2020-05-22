@@ -2,7 +2,7 @@ putc:
 
 	; make stack frame
 	push bp
-	push sp, bp
+	mov bp, sp
 
 	; save register
 	push ax
@@ -10,7 +10,7 @@ putc:
 
 	; start function
 
-	mov ai, [bp + 4]
+	mov al, [bp + 4]
 	mov ah, 0x0E
 	mov bx, 0x0000
 	int 0x10
@@ -20,7 +20,6 @@ putc:
 	pop ax
 
 	; drop stack frame
-
 	mov sp, bp
 	pop bp
 
