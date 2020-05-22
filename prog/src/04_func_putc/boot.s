@@ -1,7 +1,7 @@
-%include "../modules/real/putc.s"
+	BOOT_LOAD equ 0x7C00
+	ORG BOOT_LOAD
 
-BOOT_LOAD equ 0x7C00
-ORG BOOT_LOAD
+%include "../include/macro.s"
 
 ; entry point
 entry:
@@ -23,17 +23,9 @@ ipl:
 
 	mov [BOOT.DRIVE], dl ; save boot drive
 
-	push word'A'
-	call putc
-	add sp, 2
-
-	push word'B'
-	call putc
-	add sp, 2
-
-	push word'C'
-	call putc
-	add sp, 2
+	cdecl putc, word 'X'
+	cdecl putc, word 'Y'
+	cdecl putc, word 'Z'
 
 	jmp $
 
@@ -42,6 +34,10 @@ ALIGN 2, db 0
 
 BOOT:
 .DRIVE: dw 0 ; drive number
+
+; modules
+
+%include "../modules/real/putc.s"
 
 ; bootflag
 
