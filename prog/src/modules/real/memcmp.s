@@ -1,5 +1,5 @@
 memcmp:
-	; make stack flame
+	; make stack frame
 	push bp
 	mov bp, sp
 
@@ -37,7 +37,7 @@ memcmp:
 	pop cx
 	pop bx
 	
-	; drop stack flame
+	; drop stack frame
 
 	mov sp, bp
 	pop bp

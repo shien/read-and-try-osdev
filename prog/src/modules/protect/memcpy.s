@@ -23,7 +23,7 @@ memcpy:
 	pop esi
 	pop ecx
 
-	; drop stack flame
+	; drop stack frame
 
 	mov esp, ebp
 	pop ebp
