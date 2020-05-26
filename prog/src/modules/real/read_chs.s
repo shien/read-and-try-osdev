@@ -39,7 +39,7 @@ read_chs:
 	mov al, [bp + 6]				; AL = number of sector
 
 	int 0x13
-	jnc .11E						; if(CF)
+	jnc .11E						; if(CF) (read successfully)
 
 	mov al, 0
 	jmp .10E
@@ -48,7 +48,7 @@ read_chs:
 	cmp al, 0
 	jne .10E
 	mov ax, 0						; ret = 0
-	dec word [bp - 2]				; retry--
+	dec word [bp - 2]				; --retry
 	jnz .10L
 .10E:
 	mov ah, 0						; drop status infomation
