@@ -12,3 +12,5 @@
 
 * サポートページ
   * https://gihyo.jp/book/2019/978-4-297-10847-2/support
+* 先に演習してくれた方(感謝！)
+  * https://github.com/y-meguro/testOS
